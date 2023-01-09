@@ -2,17 +2,32 @@ import Book from './Book.js';
 
 const booksCnt = document.getElementById('booksCnt');
 const frmAddBook = document.getElementById('frmAddBook');
-const books = [];
+let books = JSON.parse(localStorage.getItem('books')) || [];
+
+const saveBooksOnLocalStorage = () => {
+  localStorage.setItem('books', JSON.stringify(books));
+};
 
 const removeBook = (button) => {
   // code to remove the book
   console.log(button);
 };
 
+const loadBooksFromLocalStorage = () => {
+  const booksAsInstances = [];
+  books.forEach(({ title, author, id }) => {
+    const book = new Book(title, author, id);
+    book.insertBookHtml(booksCnt, removeBook);
+    booksAsInstances.push(book);
+  });
+  books = booksAsInstances;
+};
+
 const addBook = (title, author) => {
   const book = new Book(title, author);
   books.push(book);
   book.insertBookHtml(booksCnt, removeBook);
+  saveBooksOnLocalStorage();
 };
 
 frmAddBook.addEventListener('submit', (e) => {
@@ -23,3 +38,9 @@ frmAddBook.addEventListener('submit', (e) => {
   frmAddBook.reset();
   frmAddBook.title.focus();
 });
+
+window.onload = () => {
+  if (books.length > 0) {
+    loadBooksFromLocalStorage();
+  }
+};
