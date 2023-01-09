@@ -10,7 +10,17 @@ const saveBooksOnLocalStorage = () => {
 
 const removeBook = (button) => {
   // code to remove the book
-  console.log(button);
+  let indexTodelete = 0;
+  
+  books.forEach((e, index) => {
+    if (e.id === button.id) {
+      indexTodelete = index;
+    }    
+  });
+
+  books.splice(indexTodelete, 1);
+  saveBooksOnLocalStorage();
+  button.parentElement.remove();
 };
 
 const loadBooksFromLocalStorage = () => {
