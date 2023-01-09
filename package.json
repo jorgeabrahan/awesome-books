@@ -19,5 +19,8 @@
   "homepage": "https://github.com/jorgeabrahan/awesome_books#readme",
   "dependencies": {
     "@lhci/cli": "^0.7.2"
+  },
+  "devDependencies": {
+    "hint": "^7.1.3"
   }
 }
