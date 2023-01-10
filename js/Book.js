@@ -9,17 +9,14 @@ export default class Book {
     this.id = id;
   }
 
-  insertBookHtml(container, removeCallback) {
+  createHtml() {
     const book = document.createElement('div');
+    book.className = 'book';
     book.innerHTML = `
       <p>"<span>${this.title}</span>" by <span>${this.author}</span></p>
-      <button id="${this.id}">Remove</button>
+      <button class="button--shadow" id="${this.id}">Remove</button>
     `;
-    const btnRemove = book.querySelector('button');
-    btnRemove.addEventListener('click', ({ target }) => {
-      removeCallback(target);
-    });
-    container.appendChild(book);
+    return book;
   }
 
   createId(tokenLen = 16) {

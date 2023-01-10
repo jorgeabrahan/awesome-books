@@ -5,43 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesome Books</title>
-    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Awesome Books</h1>
-      <div><button>List</button><button>Add new</button><button>Contact</button></div>
+    <header class="header center">
+      <div class="header__content">
+        <h1 class="header__title">Awesome Books</h1>
+        <div>
+          <button class="header__button header__button--active">List</button
+          ><button class="header__button">Add new</button><button class="header__button">Contact</button>
+        </div>
+      </div>
+      <p class="header__date">January 9 2023, 8:20 am</p>
     </header>
-    <p>January 9 2023, 8:20 am</p>
 
-    <!-- added books list section -->
-    <section>
-      <h2>All awesome books</h2>
-      <div id="booksCnt"></div>
-    </section>
-    <!-- add new book section -->
-    <section>
-      <h2>Add a new book</h2>
-      <form id="frmAddBook">
-        <label for="title">title</label>
-        <input type="text" name="title" id="title" placeholder="Title" />
-        <label for="author">author</label>
-        <input type="text" name="author" id="author" placeholder="Author" />
-        <button>Add</button>
-      </form>
-    </section>
-    <!-- contact information section -->
-    <section>
-      <h2>Contact information</h2>
-      <p>Do you have any questions or you just want to say "Hello"? <br />You can reach out to us!</p>
-      <ul>
-        <li>Our e-mail: mail@mail.com</li>
-        <li>Our phone number: +504 9993 9994</li>
-        <li>Our address: Streetname 22, 84053 City, Country</li>
-      </ul>
-    </section>
+    <main class="center">
+      <!-- added books list section -->
+      <section class="mb-2rem">
+        <h2 class="title">All awesome books</h2>
+        <div class="books" id="booksCnt"></div>
+        <p id="msgNoBooks" class="d-none">No books added yet!</p>
+      </section>
+      <!-- add new book section -->
+      <section class="mb-2rem">
+        <h2 class="title">Add a new book</h2>
+        <form class="add" id="frmAddBook">
+          <label class="sr-only" for="title">title</label>
+          <input class="add__input" type="text" name="title" id="title" placeholder="Title" required minlength="3" autocomplete="off"/>
+          <label class="sr-only" for="author">author</label>
+          <input class="add__input" type="text" name="author" id="author" placeholder="Author" required minlength="3" autocomplete="off"/>
+          <button class="button--shadow">Add</button>
+        </form>
+      </section>
+      <!-- contact information section -->
+      <section class="mb-2rem">
+        <h2 class="title">Contact information</h2>
+        <p>Do you have any questions or you just want to say "Hello"? <br />You can reach out to us!</p>
+        <ul>
+          <li>Our e-mail: mail@mail.com</li>
+          <li>Our phone number: +504 9993 9994</li>
+          <li>Our address: Streetname 22, 84053 City, Country</li>
+        </ul>
+      </section>
+    </main>
 
-    <footer>
+    <footer class="footer center">
       <p>Copyright &copy; Jorge and Diego</p>
     </footer>
   </body>
