@@ -3,7 +3,7 @@
 }
 
 .center {
-  max-width: 768px;
+  max-width: 500px;
   margin-inline: auto;
   padding-inline: 0.5rem;
 }
@@ -19,6 +19,10 @@
   background: white;
   border: 3px solid black;
   box-shadow: 3px 3px 0 0 black;
+}
+
+.button--shadow:active {
+  transform: scale(0.9);
 }
 
 .sr-only {
