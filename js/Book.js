@@ -11,9 +11,10 @@ export default class Book {
 
   createHtml() {
     const book = document.createElement('div');
+    book.className = 'book';
     book.innerHTML = `
       <p>"<span>${this.title}</span>" by <span>${this.author}</span></p>
-      <button id="${this.id}">Remove</button>
+      <button class="button--shadow" id="${this.id}">Remove</button>
     `;
     return book;
   }
