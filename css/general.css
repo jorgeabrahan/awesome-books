@@ -1,0 +1,15 @@
+.d-none {
+  display: none;
+}
+
+.center {
+  max-width: 768px;
+  margin-inline: auto;
+  padding-inline: 0.5rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
