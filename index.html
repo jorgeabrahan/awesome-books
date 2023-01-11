@@ -12,8 +12,9 @@
       <div class="header__content">
         <h1 class="header__title">Awesome Books</h1>
         <div>
-          <button class="header__button header__button--active">List</button
-          ><button class="header__button">Add new</button><button class="header__button">Contact</button>
+          <button class="header__button header__button--active" to-open="list">List</button
+          ><button class="header__button" to-open="addNew">Add new</button
+          ><button class="header__button" to-open="contact">Contact</button>
         </div>
       </div>
       <p class="header__date">January 9 2023, 8:20 am</p>
@@ -21,13 +22,14 @@
 
     <main class="center">
       <!-- added books list section -->
-      <section class="mb-2rem">
+      <section class="page mb-2rem" id="list" open>
         <h2 class="title">All awesome books</h2>
-        <div class="books" id="booksCnt"></div>
-        <p id="msgNoBooks" class="d-none">No books added yet!</p>
+        <div class="books" id="booksCnt">
+          <p id="msgNoBooks" class="d-none books__msg">No books added yet!</p>
+        </div>
       </section>
       <!-- add new book section -->
-      <section class="mb-2rem">
+      <section class="page mb-2rem" id="addNew">
         <h2 class="title">Add a new book</h2>
         <form class="add" id="frmAddBook">
           <label class="sr-only" for="title">title</label>
@@ -38,7 +40,7 @@
         </form>
       </section>
       <!-- contact information section -->
-      <section class="mb-2rem">
+      <section class="page mb-2rem" id="contact">
         <h2 class="title">Contact information</h2>
         <p>Do you have any questions or you just want to say "Hello"? <br />You can reach out to us!</p>
         <ul>
@@ -49,8 +51,10 @@
       </section>
     </main>
 
-    <footer class="footer center">
-      <p>Copyright &copy; Jorge and Diego</p>
+    <footer class="center">
+      <div class="footer__content">
+        <p>Copyright &copy; Jorge and Diego</p>
+      </div>
     </footer>
   </body>
   <script type="module" src="./js/app.js"></script>

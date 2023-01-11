@@ -4,9 +4,20 @@ export default class Books {
   constructor(container) {
     this.books = JSON.parse(localStorage.getItem('books')) || [];
     this.container = container;
+    this.msgNoBooks = container.querySelector('#msgNoBooks');
     if (this.amount > 0) {
       this.load();
+      return;
     }
+    this.toggleNoBooksMessage();
+  }
+
+  toggleNoBooksMessage() {
+    if (this.amount === 0) {
+      this.msgNoBooks.classList.remove('d-none');
+      return;
+    }
+    this.msgNoBooks.classList.add('d-none');
   }
 
   load() {
@@ -29,6 +40,7 @@ export default class Books {
     this.books = this.books.filter((book) => book.id !== button.id);
     button.parentElement.remove();
     this.saveLocally();
+    this.toggleNoBooksMessage();
   }
 
   add(title, author) {
@@ -36,6 +48,7 @@ export default class Books {
     this.books.push(book);
     this.container.appendChild(this.create(book));
     this.saveLocally();
+    this.toggleNoBooksMessage();
   }
 
   create(book) {

@@ -38,3 +38,11 @@
 .mb-2rem {
   margin-bottom: 2rem;
 }
+
+.page {
+  display: none;
+}
+
+.page[open] {
+  display: block;
+}
