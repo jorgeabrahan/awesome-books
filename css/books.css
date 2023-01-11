@@ -2,6 +2,10 @@
   border: 3px solid black;
 }
 
+.books__msg {
+  padding: 0.5rem;
+}
+
 .book {
   display: flex;
   justify-content: space-between;
