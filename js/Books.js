@@ -4,20 +4,20 @@ export default class Books {
   constructor(container) {
     this.books = JSON.parse(localStorage.getItem('books')) || [];
     this.container = container;
-    this.paragraph = document.getElementById('list-p');
+    this.msgNoBooks = container.querySelector('#msgNoBooks');
     if (this.amount > 0) {
       this.load();
-    } else {
-      this.noBooks();
-    }
-  }
-
-  noBooks() {
-    if (this.amount === 0) {
-      this.paragraph.classList.remove('d-none');
       return;
     }
-    this.paragraph.classList.add('d-none');
+    this.toggleNoBooksMessage();
+  }
+
+  toggleNoBooksMessage() {
+    if (this.amount === 0) {
+      this.msgNoBooks.classList.remove('d-none');
+      return;
+    }
+    this.msgNoBooks.classList.add('d-none');
   }
 
   load() {
@@ -40,8 +40,7 @@ export default class Books {
     this.books = this.books.filter((book) => book.id !== button.id);
     button.parentElement.remove();
     this.saveLocally();
-    //
-    this.noBooks();
+    this.toggleNoBooksMessage();
   }
 
   add(title, author) {
@@ -49,7 +48,7 @@ export default class Books {
     this.books.push(book);
     this.container.appendChild(this.create(book));
     this.saveLocally();
-    this.noBooks();
+    this.toggleNoBooksMessage();
   }
 
   create(book) {
